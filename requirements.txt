@@ -1,0 +1,7 @@
+transformers>=4.37.1
+pillow
+requests
+scikit-learn
+nltk
+openai
+sentencepiece
