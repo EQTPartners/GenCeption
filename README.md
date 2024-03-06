@@ -2,9 +2,10 @@
 
 <div>
 <p align="center">
-  <a href="https://github.com/EQTPartners/GenCeption/blob/main/Leaderboard.md">🔥🏅️Leaderboard🏅️🔥</a>&emsp;•&emsp;
+  <a href="https://github.com/EQTPartners/GenCeption/blob/main/leaderboard/Leaderboard.md">🔥🏅️Leaderboard🏅️🔥</a>&emsp;•&emsp;
   <a href="#contribute">Contribute</a>&emsp;•&emsp;
   <a href="https://arxiv.org/abs/2402.14973">Paper</a>&emsp;•&emsp;
+  <a href="">HF Space 🤗</a>&emsp;•&emsp;
   <a href="#cite-this-work">Citation</a> 
 </p>
 
