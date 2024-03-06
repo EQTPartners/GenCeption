@@ -9,11 +9,11 @@ jobs:
   update-markdown:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3 # Updated to the latest version at the time of writing
+      - uses: actions/checkout@v4 # Updated to the latest version at the time of writing
       - name: Set up Python
-        uses: actions/setup-python@v4 
+        uses: actions/setup-python@v5 
         with:
-          python-version: '3.x'
+          python-version: '3.10'
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -24,6 +24,6 @@ jobs:
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
-          git add README.md
-          git commit -m "Update README.md from JSON data" -a || echo "No changes to commit"
+          git add leaderboard/Leaderboard.md
+          git commit -m "Update Leaderboard.md from JSON data" -a || echo "No changes to commit"
           git push
