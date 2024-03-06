@@ -19,7 +19,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install pyyaml
       - name: Generate Markdown
-        run: python .github/scripts/generate_leaderboard.py
+        run: python .github/scripts/generate-leaderboard.py
       - name: Commit and push if changed
         run: |
           git config --global user.email "action@github.com"
