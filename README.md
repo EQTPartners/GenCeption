@@ -22,7 +22,7 @@ We demostrate a 5-iteration GenCeption procedure below run on a seed images to e
 
 
 ## Contribute
-Please **create PR (Pull-Request)** to contribute your results to the [🔥🏅️**Leaderboard**🏅️🔥](https://github.com/EQTPartners/GenCeption/blob/main/Leaderboard.md). Start by creating your virtual environment:
+Please add your model details and results to `leaderboard/leaderboard.json` and **create a PR (Pull-Request)** to contribute your results to the [🔥🏅️**Leaderboard**🏅️🔥](https://github.com/EQTPartners/GenCeption/blob/main/leaderboard/Leaderboard.md). Start by creating your virtual environment:
 
 ```{bash}
 conda create --name genception python=3.10 -y

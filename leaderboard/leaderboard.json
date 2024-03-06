@@ -1,0 +1,97 @@
+{
+    "models": [
+      {
+        "name": "ChatGPT-4V",
+        "url": "https://cdn.openai.com/papers/GPTV_System_Card.pdf",
+        "scores": {
+          "Mean": 0.351,
+          "Exist": 0.422,
+          "Count": 0.404,
+          "Posi": 0.408,
+          "Col": 0.403,
+          "Post": 0.324,
+          "Cel": 0.332,
+          "Sce": 0.393,
+          "Lan": 0.353,
+          "Art": 0.421,
+          "Comm": 0.471,
+          "VisMean": 0.393,
+          "Code": 0.193,
+          "Num": 0.240,
+          "Tran": 0.157,
+          "OCR": 0.393,
+          "TextMean": 0.246
+        }
+      },
+      {
+        "name": "mPLUG-Owl2",
+        "url": "https://arxiv.org/pdf/2311.04257.pdf",
+        "scores": {
+          "Mean": 0.257,
+          "Exist": 0.323,
+          "Count": 0.299,
+          "Posi": 0.306,
+          "Col": 0.290,
+          "Post": 0.243,
+          "Cel": 0.232,
+          "Sce": 0.299,
+          "Lan": 0.275,
+          "Art": 0.252,
+          "Comm": 0.353,
+          "VisMean": 0.287,
+          "Code": 0.176,
+          "Num": 0.192,
+          "Tran": 0.081,
+          "OCR": 0.276,
+          "TextMean": 0.181
+        }
+      },
+      {
+        "name": "LLaVA-13B",
+        "url": "https://arxiv.org/pdf/2304.08485.pdf",
+        "scores": {
+          "Mean": 0.238,
+          "Exist": 0.305,
+          "Count": 0.294,
+          "Posi": 0.255,
+          "Col": 0.300,
+          "Post": 0.215,
+          "Cel": 0.206,
+          "Sce": 0.277,
+          "Lan": 0.242,
+          "Art": 0.212,
+          "Comm": 0.334,
+          "VisMean": 0.264,
+          "Code": 0.144,
+          "Num": 0.195,
+          "Tran": 0.116,
+          "OCR": 0.239,
+          "TextMean": 0.174
+        }
+      },
+      {
+        "name": "LLaVA-7B",
+        "url": "https://arxiv.org/pdf/2304.08485.pdf",
+        "scores": {
+          "Mean": 0.225,
+          "Exist": 0.308,
+          "Count": 0.253,
+          "Posi": 0.285,
+          "Col": 0.284,
+          "Post": 0.214,
+          "Cel": 0.188,
+          "Sce": 0.266,
+          "Lan": 0.252,
+          "Art": 0.210,
+          "Comm": 0.294,
+          "VisMean": 0.255,
+          "Code": 0.107,
+          "Num": 0.155,
+          "Tran": 0.111,
+          "OCR": 0.222,
+          "TextMean": 0.149
+        }
+      }
+    ]
+  }
+  
