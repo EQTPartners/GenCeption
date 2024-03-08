@@ -1,3 +1,14 @@
+---
+title: {{Genception Leaderboard}}
+emoji: {{🔥}}
+colorFrom: {{#007bff}}
+colorTo: {{#0056b3}}
+sdk: {{pytorch}}
+sdk_version: {{2.2.0}}
+app_file: app.py
+pinned: false
+---
+
 # GenCeption: Evaluate Multimodal LLMs with Unlabeled Unimodal Data
 
 <div>
