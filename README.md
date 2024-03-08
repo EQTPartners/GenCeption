@@ -22,7 +22,7 @@ We demostrate a 5-iteration GenCeption procedure below run on a seed images to e
 
 
 ## Contribute
-After evaluating a model, please add your model details and results to `leaderboard/leaderboard.json` and [**create a PR (Pull-Request)**](https://huggingface.co/spaces/valbuc/GenCeption/discussions?new_pr=true) in the 🤗 Space to contribute your results to the [🔥🏅️**Leaderboard**🏅️🔥](https://huggingface.co/spaces/valbuc/GenCeption). 
+After evaluating a model, please [**create a PR (Pull-Request)**](https://huggingface.co/spaces/valbuc/GenCeption/discussions?new_pr=true) in the 🤗 Space and add your model details and results to `leaderboard/leaderboard.json`. This will add your results to the [🔥🏅️**Leaderboard**🏅️🔥](https://huggingface.co/spaces/valbuc/GenCeption). 
 
 For contributions to the codebase, please submit a PR in this GitHub repository. To run our code, start by creating your virtual environment:
 
