@@ -21,6 +21,10 @@ jobs:
         run: git filter-branch --force --index-filter "git rm --cached --ignore-unmatch *.jpeg" --prune-empty --tag-name-filter cat -- --all
       - name: Checkout LFS objects
         run: git lfs checkout
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
       - name: Push to hub
         env:
           HF_TOKEN: ${{ secrets.HUGGINGFACE }}
