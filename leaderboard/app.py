@@ -1,5 +1,5 @@
 from apscheduler.schedulers.background import BackgroundScheduler
-from leaderboard.content import (
+from content import (
     TITLE,
     BANNER,
     INTRO,
@@ -17,7 +17,7 @@ df = pd.DataFrame()
 
 def update_data():
     global df
-    with open("leaderboard/leaderboard.json", "r") as f:
+    with open("/leaderboard.json", "r") as f:
         data = json.load(f)
     df = create_dataframe(data)
 

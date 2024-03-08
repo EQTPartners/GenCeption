@@ -1,3 +1,14 @@
+---
+title: Genception Leaderboard
+emoji: 🔥
+colorFrom: red
+colorTo: green
+sdk: gradio
+sdk_version: 4.19.2
+app_file: leaderboard/app.py
+pinned: true
+---
+
 # GenCeption: Evaluate Multimodal LLMs with Unlabeled Unimodal Data
 
 <div>
@@ -53,18 +64,3 @@ The MME dataset, of which the image modality was used in our paper, can be obtai
     primaryClass={cs.AI,cs.CL,cs.LG}
 }
 ```
-
-## HF Space config
-
-Please dont be distracted by this content - it just configues the [🤗 Leaderboard](https://huggingface.co/spaces/valbuc/GenCeption).
-
----
-title: Genception Leaderboard
-emoji: 🔥
-colorFrom: red
-colorTo: green
-sdk: gradio
-sdk_version: 4.19.2
-app_file: app.py
-pinned: true
----
