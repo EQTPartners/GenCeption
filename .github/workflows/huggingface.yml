@@ -13,6 +13,14 @@ jobs:
         with:
           fetch-depth: 0
           lfs: true
+      - name: LFS Install
+        run: git lfs install
+      - name: LFS Track
+        run: git lfs track *.jpeg
+      - name: reset commit
+        run: git filter-branch --force --index-filter "git rm --cached --ignore-unmatch *.jpeg" --prune-empty --tag-name-filter cat -- --all
+      - name: Checkout LFS objects
+        run: git lfs checkout
       - name: Push to hub
         env:
           HF_TOKEN: ${{ secrets.HUGGINGFACE }}
