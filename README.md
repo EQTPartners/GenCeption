@@ -1,10 +1,10 @@
 ---
 title: {{Genception Leaderboard}}
 emoji: {{🔥}}
-colorFrom: {{#007bff}}
-colorTo: {{#0056b3}}
-sdk: {{pytorch}}
-sdk_version: {{2.2.0}}
+colorFrom: {{red}}
+colorTo: {{green}}
+sdk: {{gradio}}
+sdk_version: {{4.19.2}}
 app_file: app.py
 pinned: false
 ---
