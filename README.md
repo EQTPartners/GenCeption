@@ -2,10 +2,9 @@
 
 <div>
 <p align="center">
-  <a href="https://github.com/EQTPartners/GenCeption/blob/main/leaderboard/Leaderboard.md">🔥🏅️Leaderboard🏅️🔥</a>&emsp;•&emsp;
+  <a href="https://huggingface.co/spaces/valbuc/GenCeption">🔥🏅️🤗 Leaderboard🏅️🔥</a>&emsp;•&emsp;
   <a href="#contribute">Contribute</a>&emsp;•&emsp;
   <a href="https://arxiv.org/abs/2402.14973">Paper</a>&emsp;•&emsp;
-  <a href="">HF Space 🤗</a>&emsp;•&emsp;
   <a href="#cite-this-work">Citation</a> 
 </p>
 
@@ -23,7 +22,7 @@ We demostrate a 5-iteration GenCeption procedure below run on a seed images to e
 
 
 ## Contribute
-Please add your model details and results to `leaderboard/leaderboard.json` and **create a PR (Pull-Request)** to contribute your results to the [🔥🏅️**Leaderboard**🏅️🔥](https://github.com/EQTPartners/GenCeption/blob/main/leaderboard/Leaderboard.md). Start by creating your virtual environment:
+Please add your model details and results to `leaderboard/leaderboard.json` and **create a PR (Pull-Request)** to contribute your results to the [🔥🏅️**Leaderboard**🏅️🔥](https://huggingface.co/spaces/). Start by creating your virtual environment:
 
 ```{bash}
 conda create --name genception python=3.10 -y
