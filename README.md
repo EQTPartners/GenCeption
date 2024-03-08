@@ -1,14 +1,3 @@
----
-title: Genception Leaderboard
-emoji: 🔥
-colorFrom: red
-colorTo: green
-sdk: gradio
-sdk_version: 4.19.2
-app_file: app.py
-pinned: true
----
-
 # GenCeption: Evaluate Multimodal LLMs with Unlabeled Unimodal Data
 
 <div>
@@ -33,7 +22,7 @@ We demostrate a 5-iteration GenCeption procedure below run on a seed images to e
 
 
 ## Contribute
-Please add your model details and results to `leaderboard/leaderboard.json` and **create a PR (Pull-Request)** to contribute your results to the [🔥🏅️**Leaderboard**🏅️🔥](https://huggingface.co/spaces/). Start by creating your virtual environment:
+Please add your model details and results to `leaderboard/leaderboard.json` and **create a PR (Pull-Request)** to contribute your results to the [🔥🏅️**Leaderboard**🏅️🔥](https://huggingface.co/spaces/valbuc/GenCeption). Start by creating your virtual environment:
 
 ```{bash}
 conda create --name genception python=3.10 -y
@@ -64,3 +53,18 @@ The MME dataset, of which the image modality was used in our paper, can be obtai
     primaryClass={cs.AI,cs.CL,cs.LG}
 }
 ```
+
+## HF Space config
+
+Please dont be distracted by this content - it just configues the [🤗 Leaderboard](https://huggingface.co/spaces/valbuc/GenCeption).
+
+---
+title: Genception Leaderboard
+emoji: 🔥
+colorFrom: red
+colorTo: green
+sdk: gradio
+sdk_version: 4.19.2
+app_file: app.py
+pinned: true
+---

@@ -104,4 +104,4 @@ scheduler = BackgroundScheduler()
 scheduler.add_job(update_data, "cron", hour=0)  # Update data once a day at midnight
 scheduler.start()
 
-demo.queue(default_concurrency_limit=40).launch(share=True)
+demo.queue(default_concurrency_limit=40).launch()
