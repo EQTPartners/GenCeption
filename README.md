@@ -1,12 +1,12 @@
 ---
-title: {{Genception Leaderboard}}
-emoji: {{🔥}}
-colorFrom: {{red}}
-colorTo: {{green}}
-sdk: {{gradio}}
-sdk_version: {{4.19.2}}
-app_file: app.py
-pinned: false
+title: "Genception Leaderboard"
+emoji: "🔥"
+colorFrom: "red"
+colorTo: "green"
+sdk: "gradio"
+sdk_version: "4.19.2"
+app_file: "app.py"
+pinned: true
 ---
 
 # GenCeption: Evaluate Multimodal LLMs with Unlabeled Unimodal Data
