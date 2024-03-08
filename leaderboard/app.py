@@ -17,7 +17,7 @@ df = pd.DataFrame()
 
 def update_data():
     global df
-    with open("/leaderboard.json", "r") as f:
+    with open("leaderboard.json", "r") as f:
         data = json.load(f)
     df = create_dataframe(data)
 
