@@ -1,11 +1,11 @@
 ---
-title: "Genception Leaderboard"
-emoji: "🔥"
-colorFrom: "red"
-colorTo: "green"
-sdk: "gradio"
-sdk_version: "4.19.2"
-app_file: "app.py"
+title: Genception Leaderboard
+emoji: 🔥
+colorFrom: red
+colorTo: green
+sdk: gradio
+sdk_version: 4.19.2
+app_file: app.py
 pinned: true
 ---
 
