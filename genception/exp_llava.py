@@ -5,14 +5,13 @@ from functools import partial
 import logging
 from tqdm import tqdm
 from transformers import AutoProcessor, LlavaForConditionalGeneration
-from genception.utils import test_sample, encode_image_os, prompt
+from genception.utils import encode_image_os, prompt, test_sample
 from genception.file_utils import find_image_files
 
-device = "cuda" if torch.cuda.is_available() else "cpu"
 torch.backends.cudnn.enabled = False
 
 
-def get_desc_llava(image, lmm_processor, lmm_model, prompt):
+def get_desc_llava(image, lmm_processor, lmm_model, prompt, device):
     """
     Given an image, generate a description using the llava model
 
@@ -37,18 +36,29 @@ def main():
     parser.add_argument("--dataset", type=str,required=True)
     parser.add_argument("--model", type=str, default="llava7b")
     parser.add_argument("--n_iter", type=int, default=3)
+    parser.add_argument("--device", type=str, default="cuda")
     args = parser.parse_args()
 
     logging.info(args)
 
+    device = args.device
+    load_in_8bit = True
+    if device == "cpu":
+        load_in_8bit = False
     lmm_model = LlavaForConditionalGeneration.from_pretrained(
-        f"llava-hf/llava-1.5-{args.model[5:]}-hf", load_in_8bit=True
+        f"llava-hf/llava-1.5-{args.model[5:]}-hf", load_in_8bit=load_in_8bit
     )
     lmm_processor = AutoProcessor.from_pretrained(
         f"llava-hf/llava-1.5-{args.model[5:]}-hf"
     )
-    prompt = f"<image>\nUSER: {prompt}\nASSISTANT:"
-    get_desc_function = partial(get_desc_llava, lmm_processor, lmm_model, prompt)
+    model_prompt = f"<image>\nUSER: {prompt}\nASSISTANT:"
+    get_desc_function = partial(
+        get_desc_llava,
+        lmm_processor=lmm_processor,
+        lmm_model=lmm_model,
+        prompt=model_prompt,
+        device=device
+    )
     encode_image_function = encode_image_os
 
     output_folder = os.path.join(args.dataset, f"results_{args.model}")

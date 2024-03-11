@@ -11,6 +11,7 @@ from PIL import Image
 from openai import OpenAI
 from sklearn.metrics.pairwise import cosine_similarity
 
+
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # VIT model

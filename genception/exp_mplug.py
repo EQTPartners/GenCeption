@@ -17,13 +17,11 @@ from genception.utils import test_sample, encode_image_os, prompt
 from genception.file_utils import find_image_files
 
 logging.basicConfig(level=logging.INFO)
-
-device = "cuda" if torch.cuda.is_available() else "cpu"
 torch.backends.cudnn.enabled = False
 
 
 
-def get_desc_mPLUG(image, image_processor, lmm_model, tokenizer, prompt):
+def get_desc_mPLUG(image, image_processor, lmm_model, tokenizer, prompt, device):
     """
     Given an image, generate a description using the mPLUG model
 
@@ -41,7 +39,8 @@ def get_desc_mPLUG(image, image_processor, lmm_model, tokenizer, prompt):
     max_edge = max(image.size)
     resized_image = image.resize((max_edge, max_edge))
     image_tensor = process_images([resized_image], image_processor)
-    image_tensor = image_tensor.to(lmm_model.device, dtype=torch.float16)
+    if device == "cuda":
+        image_tensor = image_tensor.to(lmm_model.device, dtype=torch.float16)
 
     inp = DEFAULT_IMAGE_TOKEN + prompt
     conv.append_message(conv.roles[0], inp)
@@ -80,13 +79,15 @@ def get_desc_mPLUG(image, image_processor, lmm_model, tokenizer, prompt):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--dataset", type=str, default="mme_data/color")
+    parser.add_argument("--dataset", type=str, default="datasets/examples")
     parser.add_argument("--model", type=str, default="MAGAer13/mplug-owl2-llama2-7b")
-    parser.add_argument("--n_iter", type=int, default=5)
+    parser.add_argument("--n_iter", type=int, default=3)
+    parser.add_argument("--device", type=str, default="cuda")
     args = parser.parse_args()
 
     logging.info(args)
 
+    device = args.device
     model_name = get_model_name_from_path(args.model)
     tokenizer, lmm_model, image_processor, _ = load_pretrained_model(
         args.model,
@@ -96,10 +97,17 @@ def main():
         load_4bit=False,
         device=device,
     )
+    if device == "cpu":
+        lmm_model = lmm_model.float()
     tokenizer.pad_token_id = tokenizer.eos_token_id
     tokenizer.pad_token = tokenizer.eos_token
     get_desc_function = partial(
-        get_desc_mPLUG, image_processor, lmm_model, tokenizer, prompt
+        get_desc_mPLUG,
+        image_processor=image_processor,
+        lmm_model=lmm_model,
+        tokenizer=tokenizer,
+        prompt=prompt,
+        device=device
     )
     encode_image_function = encode_image_os
 
