@@ -3,7 +3,7 @@ import json
 import pickle
 import numpy as np
 import argparse
-from genception.utils import find_files
+from genception.file_utils import find_files
 
 
 def read_all_pkl(folder_path: str) -> dict:

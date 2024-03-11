@@ -22,9 +22,9 @@ We demostrate a 5-iteration GenCeption procedure below run on a seed images to e
 
 
 ## Contribute
-After evaluating a model, please [**create a PR (Pull-Request)**](https://huggingface.co/spaces/valbuc/GenCeption/discussions?new_pr=true) in the 🤗 Space and add your model details and results to `leaderboard/leaderboard.json`. This will add your results to the [🔥🏅️**Leaderboard**🏅️🔥](https://huggingface.co/spaces/valbuc/GenCeption). 
 
-For contributions to the codebase, please submit a PR in this GitHub repository. To run our code, start by creating your virtual environment:
+The GenCeption evaluation utilizes MME images, you can request it as [described here](https://github.com/BradyFU/Awesome-Multimodal-Large-Language-Models/blob/Evaluation/README.md#our-mllm-works).
+We recommend to start by creating your virtual environment and installing dependencies:
 
 ```{bash}
 conda create --name genception python=3.10 -y
@@ -32,15 +32,26 @@ conda activate genception
 pip install -r requirements.txt
 ```
 
-For example, if you want to evaluate mPLUG-Owl2 model, please follow the instructions in the [official mPLUG-OWL2 repository](https://github.com/X-PLUG/mPLUG-Owl/tree/main/mPLUG-Owl2#usage). Then run GenCeption by
+Firsly, you need to make sure setup the MLLM properly. For example, follow [this](https://github.com/X-PLUG/mPLUG-Owl/tree/main/mPLUG-Owl2#usage) to set up mPLUG-OWL2, follow [this](https://platform.openai.com/docs/guides/vision) to config ChatGPT-4v, follow [this](https://docs.anthropic.com/claude/docs/intro-to-claude) to config Claude-3, and so on. 
+
+Secondly, you need to create your evaluation code by referring to how it is done for [ChatGPT-4V](genception/exp_gpt4v.py), [LLaVa](genception/exp_llava.py), [mPLUG](genception/exp_mplug.py) and [Claude](genception/exp_claude.py). Of course, you need to run through your code, for example, GenCeption on ChatGPT-4V (assuming a proper configuration of OPENAI_API_KEY) is run by
 
 ```{bash}
-bash example_script.sh # uses exemplary data in datasets/example/
+python -m genception.exp_claude --dataset=datasets/examples
 ```
 
-This assumes that an OPENAI_API_KEY is set as an environment variable. The `model` argument to `experiment.py` in `example_script.sh` can be adjusted to `llava7b`, `llava13b`, `mPLUG`, or `gpt4v`. Please adapt accordingly for to evaluate your MLLM.
+Finally, run the following to calculate GC@T (T=3) metric:
+```{bash}
+python -m genception.evaluation --results_path=datasets/examples/results_gpt4v --t=3
+```
+This will generate a `GC@3.json` file under the same path.
 
-The MME dataset, of which the image modality was used in our paper, can be obtained as [described here](https://github.com/BradyFU/Awesome-Multimodal-Large-Language-Models/blob/Evaluation/README.md#our-mllm-works).
+
+### Contribute to leaderboard
+After evaluating a model, please [**create a PR (Pull-Request)**](https://huggingface.co/spaces/valbuc/GenCeption/discussions?new_pr=true) in the 🤗 Space and add your model details and results to `leaderboard/leaderboard.json`. This will add your results to the [🔥🏅️**Leaderboard**🏅️🔥](https://huggingface.co/spaces/valbuc/GenCeption). 
+
+### Contribute to code base
+To add your evaluation code, please submit a PR in this GitHub repository. 
 
 ## Cite This Work
 ```bibtex
