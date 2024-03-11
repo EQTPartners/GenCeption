@@ -1,5 +1,6 @@
 import os
 import io
+import time
 import base64
 import logging
 import pickle
@@ -122,6 +123,7 @@ def test_sample(
     output_folder: str,
     get_desc_function: callable,
     encode_image_function: callable,
+    sleep_between_iterations: int=0,
 ):
     """
     Iteratively generates T (n_iterations) descriptions and images based on the seed image
@@ -180,5 +182,9 @@ def test_sample(
 
         # Update current_image_path for the next iteration
         current_image_path = new_image_filename
+
+        # Sleep to cope with rate control for some models
+        if sleep_between_iterations > 0:
+            time.sleep(sleep_between_iterations)
 
     return None

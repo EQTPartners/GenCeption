@@ -84,6 +84,7 @@ def main():
                 output_folder=output_folder,
                 get_desc_function=get_desc_function,
                 encode_image_function=encode_image_function,
+                sleep_between_iterations=10,
             )
         except Exception as e:
             logging.warning("caught error:")
