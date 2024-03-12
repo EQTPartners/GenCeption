@@ -30,8 +30,12 @@ prompt = (
 
 
 def encode_image_base64(image_path: str):
-    with open(image_path, "rb") as image_file:
-        return base64.b64encode(image_file.read()).decode("utf-8")
+    with Image.open(image_path) as img:
+        # Convert the image to JPEG format in memory
+        with io.BytesIO() as buffer:
+            img.save(buffer, format="JPEG")
+            jpeg_img_bytes = buffer.getvalue()
+            return base64.b64encode(jpeg_img_bytes).decode("utf-8")
 
 
 def image_embedding(image_file: str) -> list[float]:
@@ -65,11 +69,14 @@ def save_image_from_url(url: str, filename: str):
         image = Image.open(image_stream)
 
         # Ensure the filename ends with .jpg extension
-        if not filename.lower().endswith('.jpg'):
-            filename += '.jpg'
+        _base, _extension = os.path.splitext(filename)
+        if not _extension.lower() == '.jpg':
+            filename = _base + '.jpg'
 
         # Convert to JPEG and save
         image.convert('RGB').save(filename, "JPEG")
+
+        return filename
     else:
         logging.warning(
             f"Failed to download image. Status code: {response.status_code}"
@@ -114,8 +121,7 @@ def generate_xt(
     new_image_filename = os.path.join(
         output_folder, f"{file_name}_{i}.{file_extension}"
     )
-    save_image_from_url(response.data[0].url, new_image_filename)
-    return new_image_filename
+    return save_image_from_url(response.data[0].url, new_image_filename)
 
 
 def test_sample(
@@ -140,17 +146,32 @@ def test_sample(
     list_of_image = []
     list_of_image_embedding = [image_embedding(seed_image)]
     list_of_cos_sim = [1.0]
+    iter_start = 0
 
     current_image_path = seed_image
     current_image_name = os.path.basename(current_image_path)
     file_name, file_extension = current_image_name.split(".")
     logging.debug(f"Image: {current_image_path}")
+    
+    # Handeling cases where GenCeption has been run (even partially) for the specified seed image.
     pkl_file = os.path.join(output_folder, f"{file_name}_result.pkl")
     if os.path.exists(pkl_file):
-        logging.info("Results already exist, skipping")
-        return None
+        logging.info("Results already exist, checking completeness ...")
+        with open(pkl_file, "rb") as file:
+            _pkl_data = pickle.load(file)
+            _n_iter_run = len(_pkl_data["images"])
+            if _n_iter_run >= n_iteration:
+                return None
+            else:
+                iter_start = _n_iter_run
+                current_image_path = os.path.join(output_folder, f"{file_name}_{_n_iter_run-1}.jpg")
+                list_of_desc = _pkl_data["descriptions"]
+                list_of_image = _pkl_data["images"]
+                list_of_image_embedding = _pkl_data["image_embeddings"]
+                list_of_cos_sim = _pkl_data["cosine_similarities"]
+                logging.info(f"{_n_iter_run} has run, starting from {current_image_path}.")
 
-    for i in range(n_iteration):
+    for i in range(iter_start, n_iteration):
         # Encode the current image and get the description
         image = encode_image_function(current_image_path)
         image_desc = get_desc_function(image)
