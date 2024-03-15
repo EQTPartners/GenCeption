@@ -156,11 +156,11 @@ def test_sample(
     # Handeling cases where GenCeption has been run (even partially) for the specified seed image.
     pkl_file = os.path.join(output_folder, f"{file_name}_result.pkl")
     if os.path.exists(pkl_file):
-        logging.info("Results already exist, checking completeness ...")
         with open(pkl_file, "rb") as file:
             _pkl_data = pickle.load(file)
             _n_iter_run = len(_pkl_data["images"])
             if _n_iter_run >= n_iteration:
+                logging.info("Results already exist and complete.")
                 return None
             else:
                 iter_start = _n_iter_run

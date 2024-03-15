@@ -96,6 +96,8 @@ def main():
     with open(results_path, "w") as file:
         json.dump(result, file)
 
+    print(result)
+
 
 if __name__ == "__main__":
     main()

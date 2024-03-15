@@ -11,7 +11,6 @@ logging.basicConfig(level=logging.INFO)
 
 # defaults to os.environ.get("ANTHROPIC_API_KEY")
 client = anthropic.Anthropic()
-api_key = client.api_key
 
 
 def get_desc_claude(image, prompt, model_spec):
@@ -84,7 +83,7 @@ def main():
                 output_folder=output_folder,
                 get_desc_function=get_desc_function,
                 encode_image_function=encode_image_function,
-                # sleep_between_iterations=10,
+                sleep_between_iterations=10,
             )
         except Exception as e:
             logging.warning("caught error:")
