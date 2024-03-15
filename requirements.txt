@@ -6,3 +6,4 @@ nltk
 openai
 sentencepiece
 apscheduler
+torch

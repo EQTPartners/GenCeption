@@ -3,7 +3,7 @@ import json
 import pickle
 import numpy as np
 import argparse
-from genception.utils import find_files
+from genception.file_utils import find_files
 
 
 def read_all_pkl(folder_path: str) -> dict:
@@ -95,6 +95,8 @@ def main():
     results_path = os.path.join(args.results_path, f"GC@{str(args.t)}.json")
     with open(results_path, "w") as file:
         json.dump(result, file)
+
+    print(result)
 
 
 if __name__ == "__main__":
