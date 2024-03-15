@@ -1,6 +1,13 @@
-# GenCeption: Evaluate Multimodal LLMs with Unlabeled Unimodal Data
+<div align="center">
 
-<div>
+<img src="./figures/gc_logo.png" height="120">
+
+**Evaluate Multimodal LLMs with Unlabeled Unimodal Data**
+
+</div>
+
+------
+
 <p align="center">
   <a href="https://huggingface.co/spaces/valbuc/GenCeption">🔥🏅️🤗 Leaderboard🏅️🔥</a>&emsp;•&emsp;
   <a href="#contribute">Contribute</a>&emsp;•&emsp;
