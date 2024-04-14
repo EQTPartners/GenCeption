@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./figures/gc_logo.png" height="120">
+<img src="figures/gc_logo.png" height="120">
 
 **Evaluate Multimodal LLMs with Unlabeled Unimodal Data**
 
