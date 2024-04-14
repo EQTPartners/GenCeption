@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./figures/gc_logo.png" height="120">
+<img src="figures/gc_logo.png" height="120">
 
 **Evaluate Multimodal LLMs with Unlabeled Unimodal Data**
 
@@ -17,7 +17,7 @@
 
 > GenCeption is an annotation-free MLLM (Multimodal Large Language Model) evaluation framework that merely requires unimodal data to assess inter-modality semantic coherence and inversely reflects the models' inclination to hallucinate.
 
-![GenCeption Procedure](figures/genception-correlation.jpeg)
+![GenCeption Procedure](figures/existence-example.jpeg)
 
 GenCeption is inspired by a popular multi-player game [DrawCeption](https://wikipedia.org/wiki/drawception). Using the image modality as an example, the process begins with a seed image $\mathbf{X}^{(0)}$ from a unimodal image dataset for the first iteration ($t$=1). The MLLM creates a detailed description of the image, which is then used by an image generator to produce $\mathbf{X}^{(t)}$. After $T$ iterations, we calculate the GC@T score to measure the MLLM's performance on $\mathbf{X}^{(0)}$. 
 
