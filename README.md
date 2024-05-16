@@ -41,15 +41,15 @@ pip install -r requirements.txt
 
 Firsly, you need to make sure setup the MLLM properly. For example, follow [this](https://github.com/X-PLUG/mPLUG-Owl/tree/main/mPLUG-Owl2#usage) to set up mPLUG-OWL2, follow [this](https://platform.openai.com/docs/guides/vision) to config ChatGPT-4v, follow [this](https://docs.anthropic.com/claude/docs/intro-to-claude) to config Claude-3, and so on. 
 
-Secondly, you need to create your evaluation code by referring to how it is done for [ChatGPT-4V](genception/exp_gpt4v.py), [LLaVa](genception/exp_llava.py), [mPLUG](genception/exp_mplug.py) and [Claude](genception/exp_claude.py). Of course, you need to run through your code, for example, GenCeption on ChatGPT-4V (assuming a proper configuration of OPENAI_API_KEY) is run by
+Secondly, you need to create your evaluation code by referring to how it is done for [GPT](genception/exp_gpt.py), [LLaVa](genception/exp_llava.py), [mPLUG](genception/exp_mplug.py), [Claude](genception/exp_claude.py) and so on. Of course, you need to run through your code, for example, GenCeption on GPT-4o (assuming a proper configuration of OPENAI_API_KEY) is run by
 
 ```{bash}
-python -m genception.exp_claude --dataset=datasets/examples
+python -m genception.exp_gpt --dataset=datasets/examples --model=gpt-4o
 ```
 
 Finally, run the following to calculate GC@T (T=3) metric:
 ```{bash}
-python -m genception.evaluation --results_path=datasets/examples/results_gpt4v --t=3
+python -m genception.evaluation --results_path=datasets/examples/results_gpt-4o --t=3
 ```
 This will generate a `GC@3.json` file under the same path.
 

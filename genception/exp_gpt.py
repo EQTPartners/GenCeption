@@ -14,19 +14,20 @@ api_key = client.api_key
 
 
 
-def get_desc_gpt4v(image, prompt):
+def get_desc_gpt(image, prompt, model_ver):
     """
     Given an image, generate a description using the gpt-4-vision model
 
     Args:
     image: Image: The image to describe
     prompt: str: The prompt for the model
+    model_ver: the model version
 
     Returns:
     str: The description of the image
     """
     payload = {
-        "model": "gpt-4-vision-preview",
+        "model": model_ver,
         "messages": [
             {
                 "role": "user",
@@ -59,14 +60,15 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataset", type=str, required=True)
     parser.add_argument("--n_iter", type=int, default=3)
+    parser.add_argument("--model", type=str, default="gpt-4-vision-preview") # use "gpt-4o" to test GPT-4o
     args = parser.parse_args()
 
     logging.info(args)
 
-    get_desc_function = partial(get_desc_gpt4v, prompt=prompt)
+    get_desc_function = partial(get_desc_gpt, prompt=prompt, model_ver=args.model)
     encode_image_function = encode_image_base64
 
-    output_folder = os.path.join(args.dataset, "results_gpt4v")
+    output_folder = os.path.join(args.dataset, f"results_{args.model}")
     if os.path.exists(args.dataset):
         os.makedirs(output_folder, exist_ok=True)
     else:
