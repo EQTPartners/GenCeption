@@ -169,3 +169,4 @@ temp/
 
 # other
 .DS_Store
+tmp.*
