@@ -1,4 +1,11 @@
 <div align="center">
+  <h1>⚠️ This repository has migrated ⚠️</h1>
+  <p>This repository will not be maintained any further, and issues and pull requests may be ignored. For an up to date codebase, issues, and pull requests, please continue to the <a href="https://github.com/llcresearch/GenCeption">new repository</a>.</p>
+</div>
+
+---
+
+<div align="center">
 
 <img src="figures/gc_logo.png" height="120">
 
